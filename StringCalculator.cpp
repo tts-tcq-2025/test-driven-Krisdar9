@@ -6,6 +6,7 @@
 #include <string>
 #include <utility>
 #include <stdexcept>
+#include <numeric>
 
 namespace {
 
