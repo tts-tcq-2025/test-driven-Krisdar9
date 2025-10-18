@@ -1,3 +1,5 @@
+#include <string>
+#include <vector>
 #include "ExtractDelimiters.h"
 #include <regex>
 
@@ -12,7 +14,7 @@ std::vector<std::string> extractDelimiters(const std::string& header) {
         delimiters.push_back((*it)[1]);
 
     if (delimiters.empty())
-        delimiters.push_back(header); // single-char delimiter
+        delimiters.push_back(header);  // single-char delimiter
 
     return delimiters;
 }
