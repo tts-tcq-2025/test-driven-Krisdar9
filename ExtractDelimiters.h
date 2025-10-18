@@ -2,9 +2,7 @@
 #include <vector>
 #include <string>
 
-class Delimiters {
- public:
-    std::vector<std::string> extractDelimiters(const std::string& header);
-};
+std::vector<std::string> extractDelimiters(const std::string& header);
+
 
 
