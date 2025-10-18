@@ -1,5 +1,5 @@
-#ifndef SPLIT_NUMBERS_H
-#define SPLIT_NUMBERS_H
+#ifndef SPLITNUMBERS_H_
+#define SPLITNUMBERS_H_
 
 #include <vector>
 #include <string>
