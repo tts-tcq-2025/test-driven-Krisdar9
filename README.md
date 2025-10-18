@@ -35,15 +35,59 @@ Start Test-driven approach
 3. Refactor any assumptions, continue to pass this test. Do not add any code without a corresponding test.
 
 
-## Test Specifications based on requirements
+## Test Specifications based on requirements(Gherkin Format)
 
-TestCaseID 	Name 	Precondition 	Input 	Action 	Expected Output 	Comment
-TC001 	Empty string returns 0 	Calculator instance exists 	"" 	Call Add method 	0 	Tests empty input handling
-TC002 	Single number returns the value itself 	Calculator instance exists 	"1" 	Call Add method 	1 	Tests single number input
-TC003 	Two numbers comma separated returns sum 	Calculator instance exists 	"1,2" 	Call Add method 	3 	Tests two numbers separated by comma
-TC004 	Unknown amount of numbers returns their sum 	Calculator instance exists 	"1,2,3,4,5" 	Call Add method 	15 	Tests multiple numbers separated by comma
-TC005 	New line between numbers is delimiter 	Calculator instance exists 	"1\n2,3" 	Call Add method 	6 	Tests newline delimiter alongside comma
-TC006 	Custom single-character delimiter specified 	Calculator instance exists 	"//;\n1;2" 	Call Add method 	3 	Tests custom single-character delimiter
-TC007 	Negative numbers throw exception 	Calculator instance exists 	"1,-2,-3" 	Call Add method 	Exception with message "negatives not allowed: -2, -3" 	Validates exception with all negative numbers
-TC008 	Numbers larger than 1000 are ignored 	Calculator instance exists 	"2,1001" 	Call Add method 	2 	Tests ignoring numbers > 1000
-TC009 	Delimiters of any length with square brackets 	Calculator instance exists 	"//[***]\n1***2***3" 	Call Add method 	6 	Tests multi-character custom delimiter
+Scenario: Empty input
+    Given the input is ""
+    When the calculator adds the numbers
+    Then the result should be 0
+
+  Scenario: Single number
+    Given the input is "1"
+    When the calculator adds the numbers
+    Then the result should be 1
+
+  Scenario: Two numbers
+    Given the input is "1,2"
+    When the calculator adds the numbers
+    Then the result should be 3
+
+  Scenario: Multiple numbers
+    Given the input is "1,2,3,4"
+    When the calculator adds the numbers
+    Then the result should be 10
+
+  Scenario: Newline as delimiter
+    Given the input is "1\n2,3"
+    When the calculator adds the numbers
+    Then the result should be 6
+
+  Scenario: Custom delimiter ";"
+    Given the input is "//;\n1;2"
+    When the calculator adds the numbers
+    Then the result should be 3
+
+  Scenario: Custom delimiter "***"
+    Given the input is "//[***]\n1***2***3"
+    When the calculator adds the numbers
+    Then the result should be 6
+
+  Scenario: Multiple delimiters [*][%]
+    Given the input is "//[*][%]\n1*2%3"
+    When the calculator adds the numbers
+    Then the result should be 6
+
+  Scenario: Multiple delimiters of varying length
+    Given the input is "//[**][%%%]\n1**2%%%3"
+    When the calculator adds the numbers
+    Then the result should be 6
+
+  Scenario: Number > 1000 is ignored
+    Given the input is "2,1001"
+    When the calculator adds the numbers
+    Then the result should be 2
+
+  Scenario: Negative numbers throw an exception
+    Given the input is "1,-2,3,-4"
+    When the calculator adds the numbers
+    Then an exception should be thrown with message containing "negatives not allowed"
