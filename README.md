@@ -91,3 +91,24 @@ Scenario: Empty input
     Given the input is "1,-2,3,-4"
     When the calculator adds the numbers
     Then an exception should be thrown with message containing "negatives not allowed"
+
+## Delimiter Format Validation – Test Scenarios
+
+| Test Case ID | Scenario Description | Input | Expected Output | Notes |
+|--------------|----------------------|-------|------------------|-------|
+| TC01 | Empty input | `""` | `0` | Returns zero for empty string |
+| TC02 | Single number | `"1"` | `1` | Returns the number itself |
+| TC03 | Two numbers | `"1,2"` | `3` | Sum of two numbers |
+| TC04 | Multiple numbers | `"1,2,3,4"` | `10` | Supports multiple comma-separated numbers |
+| TC05 | Newline as delimiter | `"1\n2,3"` | `6` | Newline `\n` is treated as a valid delimiter |
+| TC06 | Custom delimiter `;` | `"//;\n1;2"` | `3` | Custom delimiter with correct header |
+| TC07 | Custom multi-char delimiter `***` | `"//[***]\n1***2***3"` | `6` | Supports multi-character delimiters |
+| TC08 | Multiple delimiters `[*][%]` | `"//[*][%]\n1*2%3"` | `6` | Supports multiple custom delimiters |
+| TC09 | Multi-length delimiters `[**][%%%]` | `"//[**][%%%]\n1**2%%%3"` | `6` | Handles multiple delimiters of different lengths |
+| TC10 | Header not at start is ignored | `"1,2\n//;\n3;4"` | `10` | Header must be at start to take effect |
+| TC11 | Missing newline after header | `"//;1;2"` | `0` or undefined | Invalid header format, behavior may vary |
+| TC12 | Empty delimiter brackets | `"//[]\n1,2"` | `3` | Empty custom delimiter is ignored; defaults used |
+| TC13 | Numbers > 1000 are ignored | `"2,1001"` | `2` | Ignores numbers greater than 1000 |
+| TC14 | Negative numbers throw exception | `"1,-2,3,-4"` | Exception with "negatives not allowed" | Throws exception listing negative numbers |
+
+
