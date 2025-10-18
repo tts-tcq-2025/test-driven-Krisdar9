@@ -1,7 +1,7 @@
-#include "string_calculator.h"
-#include "extract_delimiters.h"
-#include "split_numbers.h"
-#include "parse_and_validate.h"
+#include "StringCalculator.h"
+#include "ExtractDelimiters.h"
+#include "SplitNumbers.h"
+#include "ParseandValidate.h"
 
 int StringCalculator::add(const std::string& input) {
     if (input.empty()) return 0;
