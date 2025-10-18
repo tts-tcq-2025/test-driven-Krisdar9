@@ -3,7 +3,7 @@
 
 #ifdef __cplusplus
 extern "C++" {
-int add(const std::string& input);
+int StringCalculator::add(const std::string& input)
 };
 
 #endif
