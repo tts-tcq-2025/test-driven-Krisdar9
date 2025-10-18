@@ -1,6 +1,6 @@
+#include "NegativeError.h"
 #include <vector>
 #include <string>
-#include "NegativeError.h"
 #include <sstream>
 
 std::string formatNegativeError(const std::vector<int>& negatives) {
