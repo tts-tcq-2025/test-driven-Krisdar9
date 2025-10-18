@@ -3,7 +3,7 @@
 #include <string>
 #include <regex>
 
-std::string Delimiter:extractDelimiters(const std::string& header) {
+std::vector<std::string> extractDelimiters(const std::string& header) {
     std::vector<std::string> delimiters;
     std::regex multiDelim(R"(\[(.*?)\])");
 
