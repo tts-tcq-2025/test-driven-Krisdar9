@@ -1,4 +1,4 @@
-#include "string_calculator.h"
+#include "StringCalculator.h"
 #include <iostream>
 
 void test(const std::string& desc, const std::string& input, int expected) {
