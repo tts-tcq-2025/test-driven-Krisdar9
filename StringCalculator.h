@@ -4,7 +4,7 @@
 #ifdef __cplusplus
 extern "C++" {
 class StringCalculator {
-public:
+ public:
     int add(const std::string& input);
 };
 };
