@@ -1,5 +1,5 @@
-#ifndef EXTRACT_DELIMITERS_H
-#define EXTRACT_DELIMITERS_H
+#ifndef EXTRACTDELIMITERS_H_
+#define EXTRACTDELIMITERS_H_
 
 #include <vector>
 #include <string>
