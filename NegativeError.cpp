@@ -1,4 +1,4 @@
-#include "format_negative_error.h"
+#include "NegativeError.h"
 #include <sstream>
 
 std::string formatNegativeError(const std::vector<int>& negatives) {
