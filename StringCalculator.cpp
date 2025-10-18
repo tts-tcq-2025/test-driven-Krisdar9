@@ -27,7 +27,8 @@ std::pair<std::string, std::string> parseHeaderAndBody(const std::string& input)
 
 }   // namespace
 
-std::pair<std::vector<std::string>, std::string> parseDelimitersAndNumbers(const std::string& input) {
+std::pair<std::vector<std::string>, std::string> parseDelimitersAndNumbers(
+const std::string& input) {
     std::vector<std::string> delimiters = {",", "\n"};
     std::string numbers = input;
 
