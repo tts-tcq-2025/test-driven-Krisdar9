@@ -1,3 +1,5 @@
+#include <vector>
+#include <string>
 #include "ParseandValidate.h"
 #include "NegativeError.h"
 #include <stdexcept>
