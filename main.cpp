@@ -8,7 +8,10 @@ void test(const std::string& desc, const std::string& input, int expected) {
         if (result == expected)
             std::cout << "[PASS] " << desc << ": " << result << "\n";
         else
-            std::cout << "[FAIL] " << desc << ": Expected " << expected << ", got " << result << "\n";
+            std::cout << "[FAIL] " << desc
+            << ": Expected " << expected
+            << ", got " << result
+            << "\n";
     } catch (const std::exception& ex) {
         std::cout << "[EXCEPTION] " << desc << ": " << ex.what() << "\n";
     }
