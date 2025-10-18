@@ -1,5 +1,5 @@
-#include "parse_and_validate.h"
-#include "format_negative_error.h"
+#include "ParseandValidate.h"
+#include "NegativeError.h"
 #include <stdexcept>
 
 std::vector<int> parseAndValidate(const std::vector<std::string>& tokens) {
