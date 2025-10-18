@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+#include <utility>
 #include "StringCalculator.h"
 #include "ExtractDelimiters.h"
 #include "SplitNumbers.h"
