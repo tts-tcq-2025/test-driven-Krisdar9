@@ -5,8 +5,7 @@
 #include <stdexcept>
 
 void categorizeNumber(
-    int number, std::vector<int>& numbers, 
-    std::vector<int>& negatives) {
+    int number, std::vector<int>& numbers, std::vector<int>& negatives) {
     if (number < 0) {
         negatives.push_back(number);
     } else if (number <= 1000) {
@@ -17,8 +16,7 @@ void categorizeNumber(
 void processToken(
     const std::string& token,
     std::vector<int>& numbers,
-    std::vector<int>& negatives) 
-{
+    std::vector<int>& negatives) {
     if (token.empty())
         return;
 
