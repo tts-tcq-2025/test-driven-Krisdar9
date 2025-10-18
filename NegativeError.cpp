@@ -1,3 +1,5 @@
+#include <vector>
+#include <string>
 #include "NegativeError.h"
 #include <sstream>
 
