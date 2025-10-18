@@ -3,7 +3,10 @@
 
 #ifdef __cplusplus
 extern "C++" {
-int StringCalculator::add(const std::string& input);
+class StringCalculator {
+public:
+    int add(const std::string& input);
+};
 };
 
 #endif
