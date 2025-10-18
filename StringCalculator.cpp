@@ -1,10 +1,11 @@
-#include <vector>
-#include <string>
-#include <utility>
 #include "StringCalculator.h"
 #include "ExtractDelimiters.h"
 #include "SplitNumbers.h"
 #include "ParseandValidate.h"
+#include <vector>
+#include <string>
+#include <utility>
+#include <stdexcept>
 
 namespace {
 
@@ -26,13 +27,9 @@ std::pair<std::string, std::string> parseHeaderAndBody(const std::string& input)
 
 }   // namespace
 
-//  Main method with CCN ≤ 3
-int StringCalculator::add(const std::string& input) {
-    if (input.empty())
-        return 0;
-
-    std::string numbers = input;
+std::pair<std::vector<std::string>, std::string> parseDelimitersAndNumbers(const std::string& input) {
     std::vector<std::string> delimiters = {",", "\n"};
+    std::string numbers = input;
 
     if (isCustomDelimiter(input)) {
         auto [header, body] = parseHeaderAndBody(input);
@@ -40,12 +37,24 @@ int StringCalculator::add(const std::string& input) {
         numbers = body;
     }
 
+    return {delimiters, numbers};
+}
+
+int sumNumbers(const std::vector<int>& numbers) {
+    int sum = 0;
+    for (int num : numbers)
+        sum += num;
+    return sum;
+}
+
+int StringCalculator::add(const std::string& input) {
+    if (input.empty())
+        return 0;
+
+    auto [delimiters, numbers] = parseDelimitersAndNumbers(input);
+
     auto tokens = splitNumbers(numbers, delimiters);
     auto validNumbers = parseAndValidate(tokens);
 
-    int sum = 0;
-    for (int num : validNumbers)
-        sum += num;
-
-    return sum;
+    return sumNumbers(validNumbers);
 }
