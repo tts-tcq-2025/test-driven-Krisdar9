@@ -42,10 +42,7 @@ const std::string& input) {
 }
 
 int sumNumbers(const std::vector<int>& numbers) {
-    int sum = 0;
-    for (int num : numbers)
-        sum += num;
-    return sum;
+    return std::accumulate(numbers.begin(), numbers.end(), 0);
 }
 
 int StringCalculator::add(const std::string& input) {
